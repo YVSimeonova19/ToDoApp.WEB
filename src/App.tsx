@@ -17,7 +17,7 @@ function App() {
 
   useEffect(() => {
     async function fetchTodos() {
-      const response = await fetch("http://localhost:5062/api/todoitem/");
+      const response = await fetch("https://deca-v-mazeto.azurewebsites.net/api/todoitem/");
       const data = await response.json();
       setTodos(data);
     }
@@ -26,7 +26,7 @@ function App() {
 
   const handleAddTodo = async () => {
     if (newTodo.trim() !== "") {
-      const response = await fetch("http://localhost:5062/api/todoitem/", {
+      const response = await fetch("https://deca-v-mazeto.azurewebsites.net/api/todoitem/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -44,7 +44,7 @@ function App() {
   };
 
   const handleToggleTodo = async (index: number) => {
-    await fetch(`http://localhost:5062/api/todoitem/checkout/${todos[index].id}`, {
+    await fetch(`https://deca-v-mazeto.azurewebsites.net/api/todoitem/checkout/${todos[index].id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
